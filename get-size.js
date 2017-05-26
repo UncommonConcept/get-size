@@ -11,18 +11,18 @@
   'use strict';
   if ( typeof module == 'object' && module.exports ) {
     // CommonJS
-    module.exports = factory();
+    module.exports = factory(window);
   } else if ( typeof define == 'function' && define.amd ) {
     // AMD
     define( function() {
-      return factory();
+      return factory(window);
     });
   } else {
     // browser global
-    window.getSize = factory();
+    window.getSize = factory(window);
   }
 
-})( typeof window !== "undefined" ? window : this || {}, function factory() {
+})( typeof window !== "undefined" ? window : this, function factory(window) {
 'use strict';
 
 if (!window) return;
