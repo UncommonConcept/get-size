@@ -22,7 +22,7 @@
     window.getSize = factory();
   }
 
-})( window, function factory() {
+})( typeof window !== "undefined" ? window : this || {}, function factory() {
 'use strict';
 
 if (!window) return;
